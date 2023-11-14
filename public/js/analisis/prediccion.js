@@ -14,7 +14,7 @@ function initOperands() {
     operands = [];
     for (let i = 0; i <= degree; i++) {
         operands.push(tf.variable(tf.scalar(getRandomCoefficient())));
-        console.log(operands[i].dataSync()[0].toFixed(2));
+        // console.log(operands[i].dataSync()[0].toFixed(2));
     }
 }
 
@@ -25,6 +25,7 @@ function predict(x) {
         const coef = operands[i];
         const pow_ts = tf.fill(xs.shape, i);
         const sum = tf.add(ys, operands[i].mul(xs.pow(pow_ts)));
+        console.log('coef predict ', operands[i].dataSync()[0].toFixed(2));
         ys.dispose();
         ys = sum.clone();
     }
@@ -36,14 +37,20 @@ function loss(pred, labels) {
 }
 
 function train() {
+    // console.log('coef pos 1 ', operands[0].dataSync()[0].toFixed(2));
     const xs = tf.tensor1d(x_vals);
+    // console.log('coef pos 2 ', operands[0].dataSync()[0].toFixed(2));
     const ys = tf.tensor1d(y_vals);
+    // console.log('coef pos 3 ', operands[0].dataSync()[0].toFixed(2));
 
     for (let i = 0; i < 1500; i++) {
         optimizer.minimize(() => {
+            // console.log('coef pos 4a ', operands[0].dataSync()[0].toFixed(2));
             const pred = predict(x_vals);
+            // console.log('coef pos 4b ', operands[0].dataSync()[0].toFixed(2));
             return loss(pred, ys);
         });
+        
     }
 }
 
@@ -100,9 +107,9 @@ var chart = new Chart(ctx, {
 });
 
 function initGraph() {
-    
+    console.log('coef A ', operands[0].dataSync()[0].toFixed(2));
     train();
-
+    console.log('coef D ', operands[0].dataSync()[0].toFixed(2));
     // Configuración del gráfico
     chart.data.datasets[0] = {
         type: "scatter",
@@ -125,6 +132,7 @@ function initGraph() {
     let output = [];
     for (let i = 0; i <= degree; i++) {
         const coef = operands[i].dataSync()[0].toFixed(2);
+        console.log('coef ', coef);
         // when power of x is one or zero show sont show powers
         if (i === 1) {
             output.push(`${coef}x`);
@@ -133,6 +141,7 @@ function initGraph() {
         } else {
             output.push(`${coef}x<sup>${i}</sup>`);
         }
+        console.log('output ', output);
     }
 
     operandsTextHolder.innerHTML =
@@ -148,11 +157,12 @@ function initGraph() {
         tension: 0.3,
     };
     chart.data.labels = curveX;
+    console.log(curveY);
     // Renderizar el gráfico
     chart.update();
 }
 
-function initVariables(){
+function initVariables() {
     degree = document.getElementById("orderPolySlider").value;
     learningRate = document.getElementById("learningRateSlider").value;
     optimizer = tf.train.adam(learningRate);
@@ -172,7 +182,7 @@ async function getData() {
             // `http://127.0.0.1:3000/api/v1/shoppings/2023-01-02/2023-12-20/4157094700968`
         )
         .then((response) => {
-            // console.log(response.data.data);
+            console.log(response.data.data);
             res = response.data.data;
             // x.forEach(element => {
             //     console.log(element);
@@ -189,12 +199,13 @@ async function getData() {
         var x = 0;
         res.forEach((element) => {
             // if (date_ini) {
-
             // }
-            labels_date.push(element.fecha_ini);
+            labels_date.push(date_ini.toDateString());
+            date_ini.setDate(date_ini.getDate() + 1);
             x_vals.push(++x);
             y_vals.push(element.ncontagios);
         });
+        labels_date.push(date_ini.toDateString());
         console.log(labels_date);
         initVariables();
         initGraph();

@@ -12,6 +12,7 @@ use App\Http\Controllers\EstadiaEnfermedadController;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\LaboratorioController;
 use App\Http\Controllers\MapaController;
+use App\Http\Controllers\OCRController;
 use App\Http\Controllers\PrediccionController;
 use App\Http\Controllers\PuntoAtencionController;
 use App\Http\Controllers\ResultadoController;
@@ -100,4 +101,8 @@ Route::middleware([
 
     Route::post('/import', [ImportController::class, 'labImport'])->name('import.import');;
 
+
+    Route::get('archivo', [OCRController::class, 'index'])->name('archivo.index');
+    Route::post('/imagen', [OCRController::class, 'imageOCR'])->name('archivo.imageOCR');
+    
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\estadia_enfermedad;
+use App\Models\laboratorio;
 use App\Models\punto_atencion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -22,11 +23,9 @@ class PrediccionController extends Controller
 
     public function getDataHospital($id, $fecha_ini, $fecha_fin)
     {
-        $data = estadia_enfermedad::
+        $data = laboratorio::
         select(DB::raw('fecha_ini, COUNT(*) as nContagios'))
-        ->where('estadia_enfermedable_id', $id)
         ->where('fecha_ini', '>=', $fecha_ini)
-        ->where('fecha_ini', '<=', $fecha_fin)
         ->groupBy('fecha_ini')
         ->orderBy('fecha_ini', 'asc')
         ->get();

@@ -14,6 +14,7 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .js('resources/js/analisis/mapaCalor.js', 'public/js/analisis/mapaCalor.js')
     .js('resources/js/users/mapa.js', 'public/js/users/mapa.js')
+    .js('resources/js/helpers/button_flotante.js', 'public/js/helpers/button_flotante.js')
     .postCss('resources/css/app.css', 'public/css', [
         require('tailwindcss'),
     ]);

@@ -2,5 +2,6 @@
     "/js/app.js": "/js/app.js",
     "/js/analisis/mapaCalor.js": "/js/analisis/mapaCalor.js",
     "/js/users/mapa.js": "/js/users/mapa.js",
+    "/js/helpers/button_flotante.js": "/js/helpers/button_flotante.js",
     "/css/app.css": "/css/app.css"
 }

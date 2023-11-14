@@ -117,7 +117,7 @@ class UserSeeder extends Seeder
             'fecha_nac' => '1992-11-12'
         ])->assignRole('Personal Médico');
 
-        // User::factory()->count(100)->create();
+         //User::factory()->count(100)->create();
     }
      
 }

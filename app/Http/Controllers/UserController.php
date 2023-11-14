@@ -76,6 +76,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         $validatedData = $request->validate([
             'ci' => 'required|integer|unique:users,ci',
             'name' => 'required|string|max:50',

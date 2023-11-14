@@ -20,7 +20,7 @@ class EstadiaEnfermedadSeeder extends Seeder
     public function run()
     {
 
-        // $brigada = brigada::find(1);
+         // $brigada = brigada::find(1);
         // $brigada->estadiasEnfermedades()->create([
         //     'user_id' => 4, //ripa
         //     'estado_id' => 2, //En Tratamiento
