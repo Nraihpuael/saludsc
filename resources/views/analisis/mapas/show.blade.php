@@ -196,42 +196,37 @@
 
 
 
+            // // Para abajo es prueba de las mpodificaciones
+            // var map = new google.maps.Map(document.getElementById('map'), {
+            //     zoom: 10,
+            //     center: {
+            //         lat: 37.7749,
+            //         lng: -122.4194
+            //     }, // Centra el mapa en una ubicación específica
+            // });
 
-            // function initMap() {
-            //     let map, heatmap;
-            //     var lati = {!! $mapa->latitud !!}
-            //     var lngi = {!! $mapa->longitud !!}
+            // var center = {
+            //     lat: 37.7749,
+            //     lng: -122.4194
+            // }; // Coordenadas del centro del círculo
+            // var radius = 500; // Radio del círculo en metros
 
-            //     var coordinates = {!! json_encode($puntos) !!};
-            //     console.log('PUNTOS');
-            //     console.log(coordinates);
+            // // Define una serie de colores para el degradado
 
-            //     function getPoints() {
-            //         var points = [];
-            //         for (var i = 0; i < coordinates.length; i++) {
-            //             var latLng = new google.maps.LatLng(coordinates[i].latitud, coordinates[i].longitud);
-            //             points.push(latLng);
-            //         }
-            //         console.log('PUNTOS DESDE FUNCION');
-            //         console.log(points);
-            //         return points;
-            //     }
+            // var circle = new google.maps.Circle({
+            //     strokeColor: '#F5DC09', // Color del borde del círculo
+            //     strokeOpacity: 0.8, // Opacidad del borde
+            //     strokeWeight: 6, // Grosor del borde
+            //     fillColor: '#F22209', // Color de relleno del círculo (puede ser cualquier color)
+            //     fillOpacity: 0.56, // Opacidad del relleno
+            //     center: center, // Centro del círculo
+            //     radius: radius, // Radio del círculo en metros
+            // });
 
-            //     map = new google.maps.Map(document.getElementById("map"), {
-            //         zoom: 13,
-            //         center: {
-            //             lat: lati,
-            //             lng: lngi
-            //         },
-            //         mapTypeId: "satellite",
-            //     });
-            //     heatmap = new google.maps.visualization.HeatmapLayer({
-            //         data: getPoints(),
-            //         map: map,
-            //     });
+            // circle.setMap(map); // Agrega el círculo al mapa
 
-            //     heatmap.set("radius", heatmap.get("radius") ? null : 20);
-            // }
+
+            
         </script>
     @endpush
 </x-app-layout>

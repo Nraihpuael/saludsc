@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(EstadoSeeder::class);
         $this->call(LugarSeeder::class);
         $this->call(BrigadaSeeder::class);
-        // $this->call(EstadiaEnfermedadSeeder::class);
+        $this->call(EstadiaEnfermedadSeeder::class);
         $this->call(SintomaSeeder::class);
         // $this->call(EnfermedadViralMapaSeeder::class);
 

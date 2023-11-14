@@ -17,9 +17,9 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->integer('ci')->unique();
+            $table->integer('ci')->unique()->nullable();;
             $table->string('name', 50);
-            $table->string('email', 80)->unique();
+            $table->string('email', 80)->unique()->nullable();;
             $table->string('ap_paterno', 50)->nullable();
             $table->string('ap_materno', 50)->nullable();
             $table->string('telefono', 20)->nullable();
@@ -30,8 +30,8 @@ return new class extends Migration
             $table->decimal('latitud', 10, 6)->nullable();
             $table->decimal('longitud', 10, 6)->nullable();
             $table->tinyInteger('estado')->default(1); // 0: inactivo ; 1: activo
-            $table->char('genero', 1);
-            $table->date('fecha_nac');
+            $table->char('genero', 1)->nullable();
+            $table->date('fecha_nac')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

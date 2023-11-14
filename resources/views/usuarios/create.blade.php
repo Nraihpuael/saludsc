@@ -25,6 +25,23 @@
         <h1 class="text-xl mb-2 font-semibold text-gray-900 sm:text-2xl dark:text-white">
             Agregar Usuario
         </h1>
+        <div class="p-4 mb-4 bg-white border border-gray-200 rounded-lg shadow-md 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+            <div class="items-center justify-between block sm:flex pb-4">
+                <div class="flex items-center space-x-2 sm:space-x-3">
+                    <h1 class="text-xl mb-2 font-semibold text-gray-900 sm:text-2xl dark:text-white">
+                        Subir Archivo
+                    </h1>
+                    <form method="POST" action="{{ route('import.import') }}" enctype="multipart/form-data">
+                        @csrf
+                        <div style="display: flex; align-items: center;">
+                            <input type="file" name="file" accept="image/*">
+                            <x-common.button-csv-import></x-common.button-csv-import>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>    
+
         <form method="POST" action="{{ route('users.store') }}" onsubmit="validate()">
             @csrf
             <div

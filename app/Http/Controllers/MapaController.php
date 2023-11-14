@@ -67,6 +67,19 @@ class MapaController extends Controller
         $userIdsArray = collect($userIds)->pluck('user_id')->toArray();
         $puntos = User::whereIn('id', $userIdsArray)->select('latitud','longitud')->get();
 
+        $puntos2 = [];
+        for ($i = 1; $i <= 70; $i++) {
+            $puntos2[] = $puntos[0]; 
+        }
+
+        for ($i = 1; $i <= 1; $i++) {
+            $puntos2[] = $puntos[15]; 
+        }
+
+        // $puntos2[] = $puntos[0];
+        // $puntos2[] = $puntos[15];
+        // return [$puntos2[0], $puntos[15]];
+        $puntos = $puntos2;
         // return $puntos;
         // En Revision
         return view('analisis.mapas.show',compact('mapa','puntos'));
