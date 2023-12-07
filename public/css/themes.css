@@ -1,0 +1,12 @@
+/* Estilos para el tema por defecto */
+:root {
+    --color-primary: #3490dc; /* Color primario por defecto (azul) */
+  }
+
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  
+  .text-primary {
+    color: var(--color-primary);
+  }

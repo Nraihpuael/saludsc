@@ -1,0 +1,38 @@
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>ci</th>
+            <th>name</th>
+            <th>email</th>
+            <th>ap_paterno</th>
+            <th>ap_materno</th>
+            <th>telefono</th>
+            <th>ubicacion</th>
+            <th>latitud</th>
+            <th>longitud</th>
+            <th>estado</th>
+            <th>genero</th>
+            <th>fecha_nac</th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach ($users as $user)
+                <tr>
+                    <td>{{$user->id}}</td>
+                    <td>{{$user->ci}}</td>
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->email}}</td>
+                    <td>{{$user->ap_paterno}}</td>
+                    <td>{{$user->ap_materno}}</td>
+                    <td>{{$user->telefono}}</td>
+                    <td>{{$user->ubicacion}}</td>
+                    <td>{{$user->latitud}}</td>
+                    <td>{{$user->longitud}}</td>
+                    <td>{{$user->estado == 0 ? 'Inactivo' : 'Activo'}}</td>
+                    <td>{{$user->genero}}</td>
+                    <td>{{$user->fecha_nac}}</td> 
+                </tr>
+            @endforeach
+    </tbody>
+</table>
